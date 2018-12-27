@@ -30,8 +30,9 @@
     data () {
       return {
         items: [
-          { title: 'Início', icon: 'dashboard' },
-          { title: 'Sobre', icon: 'question_answer' }
+          { title: 'Início', icon: 'dashboard', route: '/' },
+          { title: 'Reconhecer Imagem', icon: 'dashboard', route: '/reconhecer-imagem' }
+          { title: 'Sobre', icon: 'question_answer', route: '/sobre' }
         ],
         right: null
       }

@@ -1,17 +1,5 @@
 <template>
   <v-navigation-drawer permanent>
-    <v-toolbar flat>
-      <v-list>
-        <v-list-tile>
-          <v-list-tile-title class="title">
-            Atlas
-          </v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-toolbar>
-
-    <v-divider></v-divider>
-
     <v-list dense class="pt-0">
       <v-list-tile
         v-for="item in items"
@@ -36,8 +24,8 @@
     data () {
       return {
         items: [
-          { title: 'Home', icon: 'dashboard' },
-          { title: 'About', icon: 'question_answer' }
+          { title: 'Início', icon: 'dashboard' },
+          { title: 'Sobre', icon: 'question_answer' }
         ],
         right: null
       }

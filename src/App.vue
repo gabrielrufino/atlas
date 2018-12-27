@@ -16,7 +16,7 @@
     </v-toolbar>
 
     <v-content>
-      <RecognizePicture/>
+      <router-view></router-view>
       <Nav :opened="navOpened"/>
     </v-content>
   </v-app>
@@ -24,13 +24,11 @@
 
 <script>
 import Nav from './components/Nav'
-import RecognizePicture from './views/RecognizePicture'
 
 export default {
   name: 'App',
   components: {
-    Nav,
-    RecognizePicture
+    Nav
   },
   data () {
     return {

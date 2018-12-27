@@ -20,7 +20,13 @@
 
 <script>
   export default {
-		name: 'Nav',
+    name: 'Nav',
+    props: {
+      opened: {
+        type: Boolean,
+        default: true
+      }
+    },
     data () {
       return {
         items: [

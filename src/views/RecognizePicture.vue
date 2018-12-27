@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-container>
     <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
-  </div>
+  </v-container>
 </template>
 
 <script>

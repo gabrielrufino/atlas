@@ -15,8 +15,8 @@
     </v-toolbar>
 
     <v-content>
-      <!-- <Nav/> -->
       <RecognizePicture/>
+      <Nav :opened="true"/>
     </v-content>
   </v-app>
 </template>

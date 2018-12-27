@@ -16,6 +16,7 @@
 
     <v-content>
       <Nav/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>

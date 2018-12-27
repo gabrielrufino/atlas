@@ -5,16 +5,16 @@ import About from './views/About'
 
 const routes = [
   {
-    path: '/',
-    component: Home
-  },
-  {
     path: '/sobre',
     component: About
   },
   {
     path: '/reconhecer-imagem',
     component: RecognizePicture
+  },
+  {
+    path: '/',
+    component: Home
   }
 ]
 

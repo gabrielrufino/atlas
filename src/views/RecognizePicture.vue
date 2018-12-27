@@ -21,7 +21,11 @@
 
       <!-- Tabs content -->
       <v-tab-item>
-        Web
+        <v-text-field>
+          <template slot="label">
+            Qual é o <strong>link</strong> da sua imagem? <v-icon style="vertical-align: middle">find_in_page</v-icon>
+          </template>
+        </v-text-field>
       </v-tab-item>
 
       <v-tab-item>

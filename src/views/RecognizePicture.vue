@@ -21,11 +21,15 @@
 
       <!-- Tabs content -->
       <v-tab-item>
-        <v-text-field>
+        <v-text-field v-model="urlImage">
           <template slot="label">
             Qual é o <strong>link</strong> da sua imagem? <v-icon style="vertical-align: middle">find_in_page</v-icon>
           </template>
         </v-text-field>
+        <v-img :src="urlImage"></v-img>
+        <v-button>
+          Descrever imagem
+        </v-button>
       </v-tab-item>
 
       <v-tab-item>
@@ -45,14 +49,9 @@ export default {
   components: {
     vueDropzone: vue2Dropzone
   },
-  data: function () {
+  data() {
     return {
-      dropzoneOptions: {
-          url: 'https://httpbin.org/post',
-          thumbnailWidth: 150,
-          maxFilesize: 0.5,
-          headers: { "My-Awesome-Header": "header value" }
-      }
+      urlImage: ''
     }
   }
 }

@@ -23,7 +23,6 @@
         v-for="item in items"
         :key="item.title"
         :to="item.route"
-        class="primary--text"
       >
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
@@ -49,9 +48,9 @@
     data () {
       return {
         items: [
-          { title: 'Início', icon: 'dashboard', route: '/' },
-          { title: 'Reconhecer Imagem', icon: 'dashboard', route: '/reconhecer-imagem' },
-          { title: 'Sobre', icon: 'question_answer', route: '/sobre' }
+          { title: 'Início', icon: 'memory', route: '/' },
+          { title: 'Reconhecer Imagem', icon: 'photo', route: '/reconhecer-imagem' },
+          { title: 'Sobre', icon: 'info ', route: '/sobre' }
         ],
         right: null
       }

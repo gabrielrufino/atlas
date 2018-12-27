@@ -18,6 +18,11 @@
         <v-icon>computer</v-icon>
       </v-tab>
 
+      <v-tab>
+        Câmera
+        <v-icon>camera_alt</v-icon>
+      </v-tab>
+
       <!-- Tabs content -->
       <v-tab-item>
         <v-text-field v-model="urlImage">
@@ -30,6 +35,10 @@
 
       <v-tab-item>
         Upload
+      </v-tab-item>
+
+      <v-tab-item>
+        Indisponível
       </v-tab-item>
     </v-tabs>
 

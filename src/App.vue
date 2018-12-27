@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-toolbar app dark color="primary">
+      <v-toolbar-side-icon @click="navOpened = !navOpened"></v-toolbar-side-icon>
       <v-toolbar-title class="headline">
         <span><v-icon>memory</v-icon> Atlas</span>
       </v-toolbar-title>
@@ -16,7 +17,7 @@
 
     <v-content>
       <RecognizePicture/>
-      <Nav :opened="true"/>
+      <Nav :opened="navOpened"/>
     </v-content>
   </v-app>
 </template>
@@ -33,8 +34,8 @@ export default {
   },
   data () {
     return {
-      //
+      navOpened: true
     }
   }
-  }
+}
 </script>

@@ -27,9 +27,14 @@
           </template>
         </v-text-field>
         <v-img :src="urlImage"></v-img>
-        <v-button>
-          Descrever imagem
-        </v-button>
+        <v-btn
+          color="primary"
+          @click="classifyImage"
+          :loading="classifyingImage"
+          :disabled="classifyingImage"
+        >
+          Classificar imagem
+        </v-btn>
       </v-tab-item>
 
       <v-tab-item>
@@ -51,7 +56,13 @@ export default {
   },
   data() {
     return {
-      urlImage: ''
+      urlImage: '',
+      classifyingImage: false
+    }
+  },
+  methods: {
+    classifyImage() {
+      // Let's code here!
     }
   }
 }

@@ -3,7 +3,6 @@
     <v-tabs
       centered
       light
-      color=""
       icons-and-text
     >
       <v-tabs-slider color="primary"></v-tabs-slider>
@@ -27,21 +26,29 @@
           </template>
         </v-text-field>
         <v-img :src="urlImage"></v-img>
-        <v-btn
-          color="primary"
-          @click="classifyImage"
-          :loading="classifyingImage"
-          :disabled="classifyingImage"
-        >
-          Classificar imagem
-        </v-btn>
       </v-tab-item>
 
       <v-tab-item>
         Upload
       </v-tab-item>
-
     </v-tabs>
+
+    <v-card>
+      <v-img
+        :src="image"
+        trasition
+      >
+      </v-img>
+      <v-btn
+        color="primary"
+        @click="classifyImage"
+        :loading="classifyingImage"
+        :disabled="classifyingImage"
+        block
+      >
+        Classificar imagem
+      </v-btn>
+    </v-card>
   </v-container>
 </template>
 
@@ -56,6 +63,7 @@ export default {
   },
   data() {
     return {
+      image: 'https://cdn.pixabay.com/photo/2017/07/23/11/46/statue-of-hercules-2531191_960_720.jpg',
       urlImage: '',
       classifyingImage: false
     }

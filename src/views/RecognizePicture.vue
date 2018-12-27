@@ -1,6 +1,34 @@
 <template>
   <v-container>
-    <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
+    <v-tabs
+      centered
+      light
+      color=""
+      icons-and-text
+    >
+      <v-tabs-slider color="primary"></v-tabs-slider>
+
+      <!-- Tabs -->
+      <v-tab>
+        Web
+        <v-icon>language</v-icon>
+      </v-tab>
+
+      <v-tab>
+        Upload
+        <v-icon>computer</v-icon>
+      </v-tab>
+
+      <!-- Tabs content -->
+      <v-tab-item>
+        Web
+      </v-tab-item>
+
+      <v-tab-item>
+        Upload
+      </v-tab-item>
+
+    </v-tabs>
   </v-container>
 </template>
 

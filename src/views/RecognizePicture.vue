@@ -72,11 +72,11 @@
 
     <v-card>
       <v-container>
-        <v-img
+        <img 
+          id="image"
           :src="image"
           trasition
         >
-        </v-img>
         <v-btn
           color="primary"
           @click="classifyImage"
@@ -94,7 +94,9 @@
 </template>
 
 <script>
+import * as mobilenet from '@tensorflow-models/mobilenet'
 import Chart from 'chart.js'
+import { prelu } from '@tensorflow/tfjs';
 
 export default {
   name: 'RecognizePicture',
@@ -134,12 +136,12 @@ export default {
 
           // The data for our dataset
           data: {
-              labels: predictions.map(prediction => prediction.label),
+              labels: predictions.map(prediction => prediction.className),
               datasets: [{
                   label: "Certeza da classificação",
                   backgroundColor: 'rgb(255, 99, 132)',
                   borderColor: 'rgb(255, 99, 132)',
-                  data: predictions.map(prediction => prediction.value),
+                  data: predictions.map(prediction => prediction.probability),
               }]
           },
 
@@ -150,7 +152,14 @@ export default {
       return chart
     },
     classifyImage () {
-      // Let's code here!
+      (async () => {
+        const img = document.getElementById('image');
+        const model = await mobilenet.load();
+        const predictions = await model.classify(img);
+
+        this.plotChart(predictions);
+              
+      })()
     }
   }
 }

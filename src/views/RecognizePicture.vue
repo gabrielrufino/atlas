@@ -79,6 +79,8 @@
       >
         Classificar imagem
       </v-btn>
+
+      <canvas id="myChart"></canvas>
     </v-card>
   </v-container>
 </template>
@@ -114,6 +116,27 @@ export default {
       }); 
 
       fr.readAsDataURL( files[0] )
+    },
+    plotChart(predictions) {
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+              labels: predictions.map(prediction => prediction.label),
+              datasets: [{
+                  label: "Predições",
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: predictions.map(prediction => prediction.value),
+              }]
+          },
+
+          // Configuration options go here
+          options: {}
+      })
     },
     classifyImage() {
       // Let's code here!

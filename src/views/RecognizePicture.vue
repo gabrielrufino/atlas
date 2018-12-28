@@ -40,6 +40,7 @@
               color="primary"
               block
               large
+              @click="loadImageFromUrl"
             >
               Carregar
             </v-btn>
@@ -92,6 +93,9 @@ export default {
     }
   },
   methods: {
+    loadImageFromUrl () {
+      this.image = this.urlImage
+    },
     classifyImage() {
       // Let's code here!
     }

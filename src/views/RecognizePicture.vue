@@ -25,12 +25,26 @@
 
       <!-- Tabs content -->
       <v-tab-item>
-        <v-text-field v-model="urlImage">
-          <template slot="label">
-            Qual é o <strong>link</strong> da sua imagem? <v-icon style="vertical-align: middle">find_in_page</v-icon>
-          </template>
-        </v-text-field>
-        <v-img :src="urlImage"></v-img>
+        <v-layout row wrap>
+          <v-flex xs9>
+            <v-text-field
+              prepend-icon="link"
+              label="Insira a URL da imagem"
+              v-model="urlImage"
+            >
+            </v-text-field>
+          </v-flex>
+          <v-flex xs1></v-flex>
+          <v-flex xs2>
+            <v-btn
+              color="primary"
+              block
+              large
+            >
+              Carregar
+            </v-btn>
+          </v-flex>
+        </v-layout>
       </v-tab-item>
 
       <v-tab-item>

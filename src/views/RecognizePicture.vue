@@ -77,14 +77,9 @@
 </template>
 
 <script>
-import vue2Dropzone from 'vue2-dropzone'
-import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 
 export default {
   name: 'RecognizePicture',
-  components: {
-    vueDropzone: vue2Dropzone
-  },
   data() {
     return {
       image: 'https://cdn.pixabay.com/photo/2017/07/23/11/46/statue-of-hercules-2531191_960_720.jpg',

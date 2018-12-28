@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import Chart from 'chart.js'
 
 export default {
   name: 'RecognizePicture',
@@ -117,17 +118,17 @@ export default {
 
       fr.readAsDataURL( files[0] )
     },
-    plotChart(predictions) {
+    plotChart (predictions) {
       var ctx = document.getElementById('myChart').getContext('2d');
       var chart = new Chart(ctx, {
           // The type of chart we want to create
-          type: 'line',
+          type: 'bar',
 
           // The data for our dataset
           data: {
               labels: predictions.map(prediction => prediction.label),
               datasets: [{
-                  label: "Predições",
+                  label: "Certeza da classificação",
                   backgroundColor: 'rgb(255, 99, 132)',
                   borderColor: 'rgb(255, 99, 132)',
                   data: predictions.map(prediction => prediction.value),
@@ -137,8 +138,10 @@ export default {
           // Configuration options go here
           options: {}
       })
+
+      return chart
     },
-    classifyImage() {
+    classifyImage () {
       // Let's code here!
     }
   }

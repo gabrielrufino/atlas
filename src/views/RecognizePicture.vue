@@ -49,11 +49,18 @@
       </v-tab-item>
 
       <v-tab-item>
-        Upload
+        <input id="image-upload" type="file" hidden @change="onFileChange">
+        <v-btn
+          color="primary"
+          class="white--text"
+          @click.native="openFileDialog"
+        >
+          Upload <v-icon right dark>cloud_upload</v-icon>
+        </v-btn>
       </v-tab-item>
 
       <v-tab-item>
-        Indisponível
+        Em breve...
       </v-tab-item>
     </v-tabs>
 
@@ -90,6 +97,23 @@ export default {
   methods: {
     loadImageFromUrl () {
       this.image = this.urlImage
+    },
+    openFileDialog () {
+      document.getElementById('image-upload').click()
+    },
+    onFileChange (e) {
+      const files = e.target.files || e.dataTransfer.files
+      if (!files.length) {
+        return
+      }
+
+      var fr = new FileReader();
+
+      fr.addEventListener("load", (e) => {
+        this.image = e.target.result
+      }); 
+
+      fr.readAsDataURL( files[0] )
     },
     classifyImage() {
       // Let's code here!

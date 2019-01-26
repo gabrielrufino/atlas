@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar app dark color="primary">
-      <v-toolbar-side-icon @click="navOpened = !navOpened"></v-toolbar-side-icon>
+      <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title class="headline">
         <span><v-icon>memory</v-icon> Atlas</span>
       </v-toolbar-title>
@@ -17,7 +17,7 @@
 
     <v-content>
       <router-view></router-view>
-      <Nav :opened="navOpened"/>
+      <Nav/>
     </v-content>
   </v-app>
 </template>
@@ -29,11 +29,6 @@ export default {
   name: 'App',
   components: {
     Nav
-  },
-  data () {
-    return {
-      navOpened: true
-    }
   }
 }
 </script>

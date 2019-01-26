@@ -96,7 +96,6 @@
 <script>
 import * as mobilenet from '@tensorflow-models/mobilenet'
 import Chart from 'chart.js'
-import { prelu } from '@tensorflow/tfjs';
 
 export default {
   name: 'RecognizePicture',

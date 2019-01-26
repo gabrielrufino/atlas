@@ -39,14 +39,9 @@
 <script>
   export default {
     name: 'Nav',
-    props: {
-      opened: {
-        type: Boolean,
-        default: true
-      }
-    },
     data () {
       return {
+        opened: false,
         items: [
           { title: 'Início', icon: 'memory', route: '/' },
           { title: 'Reconhecer Imagem', icon: 'photo', route: '/reconhecer-imagem' },

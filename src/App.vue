@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar app dark color="primary">
-      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click="moveNav"></v-toolbar-side-icon>
       <v-toolbar-title class="headline">
         <span><v-icon>memory</v-icon> Atlas</span>
       </v-toolbar-title>
@@ -29,6 +29,11 @@ export default {
   name: 'App',
   components: {
     Nav
+  },
+  methods: {
+    moveNav() {
+      this.$store.commit('moveNav')
+    }
   }
 }
 </script>

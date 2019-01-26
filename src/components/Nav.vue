@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-model="opened"
+    v-model="$store.state.navOpened"
     absolute
     temporary
   >
@@ -41,7 +41,6 @@
     name: 'Nav',
     data () {
       return {
-        opened: false,
         items: [
           { title: 'Início', icon: 'memory', route: '/' },
           { title: 'Reconhecer Imagem', icon: 'photo', route: '/reconhecer-imagem' },

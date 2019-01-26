@@ -8,6 +8,11 @@ const store = new Vuex.Store({
   state: {
     navOpened: false
   },
+  getters: {
+    navOpened: state => {
+      return state.navOpened
+    }
+  },
   mutations: {
     openNav (state) {
       state.navOpened = true

@@ -94,14 +94,14 @@
 </template>
 
 <script>
-import * as mobilenet from '@tensorflow-models/mobilenet'
 import Chart from 'chart.js'
+import ml5 from 'ml5'
 
 export default {
   name: 'RecognizePicture',
   data() {
     return {
-      image: 'https://cdn.pixabay.com/photo/2017/07/23/11/46/statue-of-hercules-2531191_960_720.jpg',
+      image: '',
       urlImage: '',
       classifyingImage: false
     }
@@ -152,12 +152,11 @@ export default {
     },
     classifyImage () {
       (async () => {
-        const img = document.getElementById('image');
-        const model = await mobilenet.load();
-        const predictions = await model.classify(img);
+        const img = document.getElementById('image')
+        const classifier = await ml5.imageClassifier('MobileNet')
+        const predictions = await classifier.predict(img)
 
-        this.plotChart(predictions);
-              
+        this.plotChart(predictions)              
       })()
     }
   }

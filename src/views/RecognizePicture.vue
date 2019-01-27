@@ -100,11 +100,13 @@
 import Chart from 'chart.js'
 import ml5 from 'ml5'
 import Loader from '@/components/Loader'
+import ImagePredictions from '@/charts/ImagePredictions'
 
 export default {
   name: 'RecognizePicture',
   components: {
-    Loader
+    Loader,
+    ImagePredictions
   },
   data() {
     return {

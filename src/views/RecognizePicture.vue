@@ -107,6 +107,9 @@ export default {
       classifyingImage: false
     }
   },
+  created () {
+    this.classifier = ml5.imageClassifier('MobileNet', () => {})
+  },
   methods: {
     loadImageFromUrl () {
       this.image = this.urlImage

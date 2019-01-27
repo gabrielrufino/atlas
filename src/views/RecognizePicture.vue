@@ -88,7 +88,7 @@
           >
             Classificar imagem
           </v-btn>
-          <image-predictions :chart-data="[]"></image-predictions>
+          <image-predictions :chart-data="chartData"></image-predictions>
         </v-container>
       </v-card>
     </div>
@@ -114,6 +114,19 @@ export default {
       urlImage: '',
       classifyingImage: false,
       predictions: []
+    }
+  },
+  computed: {
+    chartData () {
+      return {
+        labels: this.predictions.map(prediction => prediction.className),
+        datasets: [{
+          label: "Certeza da classificação",
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: this.predictions.map(prediction => prediction.probability),
+        }]
+      }
     }
   },
   created () {

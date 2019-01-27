@@ -1,5 +1,8 @@
 <template>
-  <v-container>
+  <v-container
+    fluid
+    grid-list-md
+  >
     <loader v-if="loadingClassifier"></loader>
     <v-layout v-else row wrap>
       <v-flex xs6>

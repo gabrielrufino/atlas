@@ -1,8 +1,10 @@
-import { Bar } from 'vue-chartjs'
+import { Bar, mixins } from 'vue-chartjs'
+
+const { reactiveProp } = mixins
 
 export default {
   extends: Bar,
-  props: ['predictions'],
+  mixins: [reactiveProp],
   mounted () {
     const data = {
       labels: this.predictions.map(prediction => prediction.className),

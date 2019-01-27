@@ -146,7 +146,7 @@ export default {
       const img = document.getElementById('image')
 
       this.classifier.predict(img, (err, predictions) => {
-        console.log(predictions)
+        this.predictions = predictions
       })
     }
   }

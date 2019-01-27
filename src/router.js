@@ -1,19 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Home from './views/Home'
-import RecognizePicture from './views/RecognizePicture'
+import ImageClassifier from './views/ImageClassifier'
 import About from './views/About'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/sobre',
+    path: '/about',
     component: About
   },
   {
-    path: '/reconhecer-imagem',
-    component: RecognizePicture
+    path: '/image-classifier',
+    component: ImageClassifier
   },
   {
     path: '/',

@@ -88,7 +88,7 @@
           >
             Classificar imagem
           </v-btn>
-          <image-predictions :chart-data="chartData"></image-predictions>
+          <bar :chart-data="chartData"></bar>
         </v-container>
       </v-card>
     </div>
@@ -98,13 +98,13 @@
 <script>
 import ml5 from 'ml5'
 import Loader from '@/components/Loader'
-import ImagePredictions from '@/charts/ImagePredictions'
+import Bar from '@/charts/Bar'
 
 export default {
   name: 'RecognizePicture',
   components: {
     Loader,
-    ImagePredictions
+    Bar
   },
   data() {
     return {

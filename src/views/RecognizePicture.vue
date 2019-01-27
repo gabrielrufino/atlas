@@ -74,11 +74,11 @@
 
       <v-card>
         <v-container>
-          <img 
+          <v-img 
             id="image"
             :src="image"
             trasition
-          >
+          ></v-img>
           <v-btn
             color="primary"
             @click="classifyImage"
@@ -156,7 +156,9 @@ export default {
       fr.readAsDataURL( files[0] )
     },
     classifyImage () {
-      const img = document.getElementById('image')
+      const img = new Image()
+      img.crossOrigin = 'anonymous'
+      img.src = this.image
 
       this.classifier.predict(img, (err, predictions) => {
         this.predictions = predictions

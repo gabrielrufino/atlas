@@ -1,90 +1,88 @@
 <template>
   <v-container>
     <loader v-if="loadingClassifier"></loader>
-    <div v-else>
-      <v-layout>
-        <v-flex md6>
-          <v-card>
-            <v-tabs
-              centered
-              light
-              icons-and-text
-            >
-              <v-tabs-slider color="primary"></v-tabs-slider>
+    <v-layout v-else row wrap>
+      <v-flex xs6>
+        <v-card>
+          <v-tabs
+            centered
+            light
+            icons-and-text
+          >
+            <v-tabs-slider color="primary"></v-tabs-slider>
 
-              <!-- Tabs -->
-              <v-tab>
-                Web
-                <v-icon>language</v-icon>
-              </v-tab>
+            <!-- Tabs -->
+            <v-tab>
+              Web
+              <v-icon>language</v-icon>
+            </v-tab>
 
-              <v-tab>
-                Upload
-                <v-icon>computer</v-icon>
-              </v-tab>
+            <v-tab>
+              Upload
+              <v-icon>computer</v-icon>
+            </v-tab>
 
-              <v-tab>
-                Câmera
-                <v-icon>camera_alt</v-icon>
-              </v-tab>
+            <v-tab>
+              Câmera
+              <v-icon>camera_alt</v-icon>
+            </v-tab>
 
-              <!-- Tabs content -->
-              <v-tab-item>
-                <v-text-field
-                  prepend-icon="link"
-                  label="Insira a URL da imagem"
-                  v-model="urlImage"
-                >
-                </v-text-field>
-              </v-tab-item>
+            <!-- Tabs content -->
+            <v-tab-item>
+              <v-text-field
+                prepend-icon="link"
+                label="Insira a URL da imagem"
+                v-model="urlImage"
+              >
+              </v-text-field>
+            </v-tab-item>
 
-              <v-tab-item>
-                <input id="image-upload" type="file" hidden @change="onFileChange">
-                <v-btn
-                  color="primary"
-                  class="white--text"
-                  @click.native="openFileDialog"
-                >
-                  Upload <v-icon right dark>cloud_upload</v-icon>
-                </v-btn>
-              </v-tab-item>
-
-              <v-tab-item>
-                Em breve...
-              </v-tab-item>
-            </v-tabs>
-
-            <v-card-text>
-              <v-img
-                id="image"
-                :src="image"
-                trasition
-              ></v-img>
-            </v-card-text>
-
-            <v-card-actions>
+            <v-tab-item>
+              <input id="image-upload" type="file" hidden @change="onFileChange">
               <v-btn
                 color="primary"
-                @click="classifyImage"
-                :loading="classifyingImage"
-                :disabled="classifyingImage"
-                block
+                class="white--text"
+                @click.native="openFileDialog"
               >
-                Classificar imagem
+                Upload <v-icon right dark>cloud_upload</v-icon>
               </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
+            </v-tab-item>
 
-        <v-flex md6>
-          <v-card>
-            <v-card-text>
-              <bar :chart-data="chartData"></bar>
-            </v-card-text>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </div>
+            <v-tab-item>
+              Em breve...
+            </v-tab-item>
+          </v-tabs>
+
+          <v-card-text>
+            <v-img
+              id="image"
+              :src="image"
+              trasition
+            ></v-img>
+          </v-card-text>
+
+          <v-card-actions>
+            <v-btn
+              color="primary"
+              @click="classifyImage"
+              :loading="classifyingImage"
+              :disabled="classifyingImage"
+              block
+            >
+              Classificar imagem
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+
+      <v-flex xs6>
+        <v-card>
+          <v-card-text>
+            <bar :chart-data="chartData"></bar>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 

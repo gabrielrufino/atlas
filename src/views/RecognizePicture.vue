@@ -101,6 +101,7 @@ export default {
   name: 'RecognizePicture',
   data() {
     return {
+      classifier: null,
       image: '',
       urlImage: '',
       classifyingImage: false

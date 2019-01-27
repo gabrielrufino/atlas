@@ -53,13 +53,14 @@
                 Em breve...
               </v-tab-item>
             </v-tabs>
-            <v-card-media>
+
+            <v-card-text>
               <v-img
                 id="image"
                 :src="image"
                 trasition
               ></v-img>
-            </v-card-media>
+            </v-card-text>
 
             <v-card-actions>
               <v-btn
@@ -76,7 +77,11 @@
         </v-flex>
 
         <v-flex md6>
-          <bar :chart-data="chartData"></bar>
+          <v-card>
+            <v-card-text>
+              <bar :chart-data="chartData"></bar>
+            </v-card-text>
+          </v-card>
         </v-flex>
       </v-layout>
     </div>

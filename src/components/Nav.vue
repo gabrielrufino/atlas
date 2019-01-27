@@ -7,11 +7,11 @@
     <v-list class="pa-1">
       <v-list-tile avatar>
         <v-list-tile-avatar>
-          <img src="https://cdn.pixabay.com/photo/2018/07/23/22/11/arnold-3557975_960_720.png">
+          <img src="">
         </v-list-tile-avatar>
 
         <v-list-tile-content>
-          <v-list-tile-title>Arnold Schwarzenegger</v-list-tile-title>
+          <v-list-tile-title>Gabriel Rufino</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
@@ -42,9 +42,9 @@
     data () {
       return {
         items: [
-          { title: 'Início', icon: 'memory', route: '/' },
-          { title: 'Reconhecer Imagem', icon: 'photo', route: '/reconhecer-imagem' },
-          { title: 'Sobre', icon: 'info ', route: '/sobre' }
+          { title: 'Home', icon: 'memory', route: '/' },
+          { title: 'Image Classifier', icon: 'photo', route: '/image-classifier' },
+          { title: 'About', icon: 'info ', route: '/about' }
         ],
         right: null
       }

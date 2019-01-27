@@ -165,13 +165,11 @@ export default {
       return chart
     },
     classifyImage () {
-      (async () => {
-        const img = document.getElementById('image')
-        const classifier = await ml5.imageClassifier('MobileNet')
-        const predictions = await classifier.predict(img)
+      const img = document.getElementById('image')
 
+      this.classifier.predict(img, (err, predictions) => {
         this.plotChart(predictions)              
-      })()
+      })
     }
   }
 }

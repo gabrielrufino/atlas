@@ -34,7 +34,7 @@
             <v-tab-item>
               <v-text-field
                 prepend-icon="link"
-                label="Insira a URL da imagem"
+                label="Input the image URL"
                 v-model="urlImage"
               >
               </v-text-field>
@@ -52,7 +52,7 @@
             </v-tab-item>
 
             <v-tab-item>
-              Em breve...
+              Wait for this...
             </v-tab-item>
           </v-tabs>
 
@@ -72,7 +72,7 @@
               :disabled="classifyingImage"
               block
             >
-              Classificar imagem
+              Classify Image
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -95,7 +95,7 @@ import Loader from '@/components/Loader'
 import Bar from '@/charts/Bar'
 
 export default {
-  name: 'RecognizePicture',
+  name: 'ImageClassifier',
   components: {
     Loader,
     Bar
@@ -115,7 +115,7 @@ export default {
       return {
         labels: this.predictions.map(prediction => prediction.className),
         datasets: [{
-          label: "Certeza da classificação",
+          label: "Certainty rate",
           backgroundColor: 'rgb(210, 167, 132)',
           borderColor: 'rgb(210, 167, 132)',
           data: this.predictions.map(prediction => prediction.probability),

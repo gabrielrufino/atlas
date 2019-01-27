@@ -102,6 +102,7 @@ export default {
   data() {
     return {
       classifier: null,
+      loadingClassifier: true,
       image: '',
       urlImage: '',
       classifyingImage: false

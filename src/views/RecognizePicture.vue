@@ -88,8 +88,6 @@
           >
             Classificar imagem
           </v-btn>
-
-          <canvas id="myChart"></canvas>
         </v-container>
       </v-card>
     </div>
@@ -97,7 +95,6 @@
 </template>
 
 <script>
-import Chart from 'chart.js'
 import ml5 from 'ml5'
 import Loader from '@/components/Loader'
 import ImagePredictions from '@/charts/ImagePredictions'
@@ -143,34 +140,11 @@ export default {
 
       fr.readAsDataURL( files[0] )
     },
-    plotChart (predictions) {
-      var ctx = document.getElementById('myChart').getContext('2d');
-      var chart = new Chart(ctx, {
-          // The type of chart we want to create
-          type: 'bar',
-
-          // The data for our dataset
-          data: {
-              labels: predictions.map(prediction => prediction.className),
-              datasets: [{
-                  label: "Certeza da classificação",
-                  backgroundColor: 'rgb(255, 99, 132)',
-                  borderColor: 'rgb(255, 99, 132)',
-                  data: predictions.map(prediction => prediction.probability),
-              }]
-          },
-
-          // Configuration options go here
-          options: {}
-      })
-
-      return chart
-    },
     classifyImage () {
       const img = document.getElementById('image')
 
       this.classifier.predict(img, (err, predictions) => {
-        this.plotChart(predictions)              
+        console.log(predictions)
       })
     }
   }

@@ -67,6 +67,13 @@
               Em breve...
             </v-tab-item>
           </v-tabs>
+          <v-card-media>
+            <v-img
+              id="image"
+              :src="image"
+              trasition
+            ></v-img>
+          </v-card-media>
         </v-container>
       </v-card>
 
@@ -74,11 +81,6 @@
 
       <v-card>
         <v-container>
-          <v-img 
-            id="image"
-            :src="image"
-            trasition
-          ></v-img>
           <v-btn
             color="primary"
             @click="classifyImage"

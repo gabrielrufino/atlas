@@ -5,7 +5,7 @@
   >
     <loader v-if="loadingClassifier"></loader>
     <v-layout v-else row wrap>
-      <v-flex xs6>
+      <v-flex md6>
         <v-card>
           <v-tabs
             centered
@@ -78,7 +78,7 @@
         </v-card>
       </v-flex>
 
-      <v-flex xs6>
+      <v-flex md6>
         <v-card>
           <v-card-text>
             <bar :chart-data="chartData"></bar>

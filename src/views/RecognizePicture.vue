@@ -112,7 +112,8 @@ export default {
       loadingClassifier: true,
       image: '',
       urlImage: '',
-      classifyingImage: false
+      classifyingImage: false,
+      predictions: []
     }
   },
   created () {

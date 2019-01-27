@@ -122,8 +122,8 @@ export default {
         labels: this.predictions.map(prediction => prediction.className),
         datasets: [{
           label: "Certeza da classificação",
-          backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgb(210, 167, 132)',
+          borderColor: 'rgb(210, 167, 132)',
           data: this.predictions.map(prediction => prediction.probability),
         }]
       }

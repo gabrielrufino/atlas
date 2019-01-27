@@ -30,27 +30,12 @@
 
               <!-- Tabs content -->
               <v-tab-item>
-                <v-layout row wrap>
-                  <v-flex xs9>
-                    <v-text-field
-                      prepend-icon="link"
-                      label="Insira a URL da imagem"
-                      v-model="urlImage"
-                    >
-                    </v-text-field>
-                  </v-flex>
-                  <v-flex xs1></v-flex>
-                  <v-flex xs2>
-                    <v-btn
-                      color="primary"
-                      block
-                      large
-                      @click="loadImageFromUrl"
-                    >
-                      Carregar
-                    </v-btn>
-                  </v-flex>
-                </v-layout>
+                <v-text-field
+                  prepend-icon="link"
+                  label="Insira a URL da imagem"
+                  v-model="urlImage"
+                >
+                </v-text-field>
               </v-tab-item>
 
               <v-tab-item>
@@ -138,9 +123,6 @@ export default {
     })
   },
   methods: {
-    loadImageFromUrl () {
-      this.image = this.urlImage
-    },
     openFileDialog () {
       document.getElementById('image-upload').click()
     },

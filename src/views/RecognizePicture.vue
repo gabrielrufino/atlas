@@ -88,6 +88,7 @@
           >
             Classificar imagem
           </v-btn>
+          <image-predictions :chart-data="[]"></image-predictions>
         </v-container>
       </v-card>
     </div>

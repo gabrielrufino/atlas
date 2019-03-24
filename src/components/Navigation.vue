@@ -11,7 +11,7 @@
         </v-list-tile-avatar>
 
         <v-list-tile-content>
-          <v-list-tile-title>Gabriel Rufino</v-list-tile-title>
+          <v-list-tile-title>Guest</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>

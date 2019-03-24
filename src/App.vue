@@ -17,18 +17,18 @@
 
     <v-content>
       <router-view></router-view>
-      <Nav/>
+      <Navigation/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Nav from './components/Nav'
+import Navigation from './components/Navigation'
 
 export default {
   name: 'App',
   components: {
-    Nav
+    Navigation
   },
   methods: {
     moveNav() {

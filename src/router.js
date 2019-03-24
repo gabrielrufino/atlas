@@ -2,8 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from './views/Home'
-import ImageClassifier from './views/ImageClassifier'
 import About from './views/About'
+import ImageClassifier from './views/ImageClassifier'
+import TextSummarizer from './views/TextSummarizer'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,10 @@ const routes = [
   {
     path: '/image-classifier',
     component: ImageClassifier
+  },
+  {
+    path: '/text-summarizer',
+    component: TextSummarizer
   },
   {
     path: '/',

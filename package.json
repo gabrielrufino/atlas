@@ -10,6 +10,7 @@
   "dependencies": {
     "@tensorflow-models/mobilenet": "^0.2.2",
     "@tensorflow/tfjs": "^0.14.1",
+    "algorithmia": "^0.3.10",
     "chart.js": "^2.7.3",
     "ml5": "^0.2.1",
     "vue": "^2.5.17",

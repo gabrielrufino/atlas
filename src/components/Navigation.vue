@@ -43,8 +43,9 @@
       return {
         items: [
           { title: 'Home', icon: 'memory', route: '/' },
+          { title: 'About', icon: 'info ', route: '/about' },
           { title: 'Image Classifier', icon: 'photo', route: '/image-classifier' },
-          { title: 'About', icon: 'info ', route: '/about' }
+          { title: 'Text Summarizer', icon: 'textsms', route: 'text-summarizer' }
         ],
         right: null
       }

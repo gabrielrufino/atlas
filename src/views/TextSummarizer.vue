@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Loader/>
+    <Loader v-if="loading"/>
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   name: 'TextSummarizer',
   components: {
     Loader
+  },
+  data () {
+    return {
+      loading: true
+    }
   }
 }
 </script>

@@ -10,20 +10,24 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    name: 'home',
+    component: Home
+  },
+  {
     path: '/about',
+    name: 'about',
     component: About
   },
   {
     path: '/image-classifier',
+    name: 'image-classifier',
     component: ImageClassifier
   },
   {
     path: '/text-summarizer',
+    name: 'text-summarizer',
     component: TextSummarizer
-  },
-  {
-    path: '/',
-    component: Home
   }
 ]
 

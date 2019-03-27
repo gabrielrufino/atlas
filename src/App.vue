@@ -11,7 +11,7 @@
         href="https://github.com/gabrielrufino/atlas"
         target="_blank"
       >
-        <span class="mr-2">GITHUB</span>
+        <span>GITHUB</span>
       </v-btn>
     </v-toolbar>
 

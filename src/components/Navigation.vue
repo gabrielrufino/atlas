@@ -42,10 +42,10 @@
     data () {
       return {
         items: [
-          { title: 'Home', icon: 'memory', route: '/' },
-          { title: 'About', icon: 'info ', route: '/about' },
-          { title: 'Image Classifier', icon: 'photo', route: '/image-classifier' },
-          { title: 'Text Summarizer', icon: 'textsms', route: 'text-summarizer' }
+          { title: 'Home', icon: 'memory', route: { name: 'home' } },
+          { title: 'About', icon: 'info ', route: { name: 'about' } },
+          { title: 'Image Classifier', icon: 'photo', route: { name: 'image-classifier' } },
+          { title: 'Text Summarizer', icon: 'textsms', route: { name: 'text-summarizer' } }
         ],
         right: null
       }

@@ -44,6 +44,7 @@
         items: [
           { title: 'Home', icon: 'memory', route: { name: 'home' } },
           { title: 'About', icon: 'info ', route: { name: 'about' } },
+          { title: 'Linear Regression', icon: 'trending_up', route: { name: 'linear-regression' } },
           { title: 'Image Classifier', icon: 'photo', route: { name: 'image-classifier' } },
           { title: 'Text Summarizer', icon: 'textsms', route: { name: 'text-summarizer' } }
         ],

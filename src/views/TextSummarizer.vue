@@ -2,7 +2,7 @@
   <v-container
     fluid
   >
-    <Loader v-if="loading"/>
+    <Loading v-if="loading"/>
     <v-card>
       <v-card-text>
         <v-textarea
@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import Loader from '@/components/Loader'
+import Loading from '@/components/Loading'
 
 export default {
   name: 'TextSummarizer',
   components: {
-    Loader
+    Loading
   },
   data () {
     return {

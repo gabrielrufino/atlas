@@ -3,7 +3,7 @@
     fluid
     grid-list-md
   >
-    <loader v-if="loadingClassifier"></loader>
+    <Loading v-if="loadingClassifier"/>
     <v-layout v-else row wrap>
       <v-flex md6>
         <v-card>
@@ -91,13 +91,13 @@
 
 <script>
 import ml5 from 'ml5'
-import Loader from '@/components/Loader'
+import Loading from '@/components/Loading'
 import Bar from '@/charts/Bar'
 
 export default {
   name: 'ImageClassifier',
   components: {
-    Loader,
+    Loading,
     Bar
   },
   data() {

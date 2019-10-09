@@ -1,24 +1,27 @@
 <template>
   <v-app>
-    <v-toolbar app dark color="primary">
-      <v-toolbar-side-icon @click="moveNav"></v-toolbar-side-icon>
-      <v-toolbar-title class="headline">
-        <span><v-icon>memory</v-icon> Atlas</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/gabrielrufino/atlas"
-        target="_blank"
-      >
-        <span>GITHUB</span>
-      </v-btn>
-    </v-toolbar>
+    <div>
+      <v-toolbar dark color="primary" tile>
+        <v-app-bar-nav-icon @click="moveNav"></v-app-bar-nav-icon>
+        <v-toolbar-title class="headline">
+          <span><v-icon>memory</v-icon> Atlas</span>
+        </v-toolbar-title>
 
-    <v-content>
-      <router-view></router-view>
-      <Navigation/>
-    </v-content>
+        <v-spacer></v-spacer>
+
+        <v-btn
+          color="secondary"
+          outlined
+          href="https://github.com/gabrielrufino/atlas"
+          target="_blank"
+        >
+          <span>GITHUB</span>
+        </v-btn>
+      </v-toolbar>
+    </div>
+
+    <Navigation/>
+    <router-view></router-view>
   </v-app>
 </template>
 

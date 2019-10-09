@@ -13,6 +13,9 @@ import Loading from '@/components/Loading'
 
 export default {
   name: 'LinearRegression',
+  components: {
+    Loading
+  },
   data() {
     return {
       training: false,

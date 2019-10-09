@@ -1,5 +1,8 @@
 <template>
-  <v-container>
+  <v-container
+    fluid
+    grid-list-md
+  >
     <Loading />
   </v-container>
 </template>
@@ -8,6 +11,16 @@
 import Loading from '@/components/Loading'
 
 export default {
-  name: 'LinearRegression'
+  name: 'LinearRegression',
+  data() {
+    return {
+      training: false,
+    }
+  },
+  mothods: {
+    train() {
+      // Train the model
+    }
+  }
 }
 </script>

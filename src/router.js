@@ -3,9 +3,10 @@ import VueRouter from 'vue-router'
 
 import Home from './views/Home'
 import About from './views/About'
-import LinearRegression from './views/LinearRegression'
 import ImageClassifier from './views/ImageClassifier'
 import TextSummarizer from './views/TextSummarizer'
+import LinearRegression from './views/untrained/LinearRegression'
+import UntrainedImageClassifier from './views/untrained/ImageClassifier'
 
 Vue.use(VueRouter)
 
@@ -21,11 +22,6 @@ const routes = [
     component: About
   },
   {
-    path: 'linear-regression',
-    name: 'linear-regression',
-    component: LinearRegression
-  },
-  {
     path: '/image-classifier',
     name: 'image-classifier',
     component: ImageClassifier
@@ -34,6 +30,16 @@ const routes = [
     path: '/text-summarizer',
     name: 'text-summarizer',
     component: TextSummarizer
+  },
+  {
+    path: '/untrained/linear-regression',
+    name: 'linear-regression',
+    component: LinearRegression
+  },
+  {
+    path: '/untrained/image-classifier',
+    name: 'untrained-image-classifier',
+    component: UntrainedImageClassifier
   }
 ]
 

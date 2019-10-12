@@ -3,159 +3,137 @@
     fluid
     grid-list-md
   >
-    <Loading v-if="loadingClassifier"/>
-    <v-layout v-else row wrap>
-      <v-flex md6>
-        <v-card>
-          <v-card-text>
-            <v-tabs
-              centered
-              light
-              icons-and-text
-            >
-              <v-tabs-slider color="primary"></v-tabs-slider>
+    <v-card
+      class="mx-auto mb-3"
+      max-width="400"
+    >
+      <v-card-title>Add class</v-card-title>
 
-              <!-- Tabs -->
-              <v-tab>
-                Web
-                <v-icon>language</v-icon>
-              </v-tab>
+      <v-container>
+        <v-text-field
+          label="Class name"
+          v-model="newClass"
+        ></v-text-field>
+        <v-btn
+          color="primary"
+          text
+          @click="clearClass"
+        >
+          Clear
+        </v-btn>
+        <v-btn
+          color="primary"
+          @click="addClass"
+        >
+          Add
+        </v-btn>
+      </v-container>
+    </v-card>
 
-              <v-tab>
-                Upload
-                <v-icon>computer</v-icon>
-              </v-tab>
+    <v-card
+      class="mx-auto"
+      max-width="400"
+    >
+      <v-img
+        id="exampleImage"
+        class="white--text"
+        height="200px"
+        :src="exampleImage || 'https://cdn.vuetifyjs.com/images/cards/docks.jpg'"
+      >
+        <v-card-title class="align-end fill-height">{{ this.exampleClass || 'Example' }}</v-card-title>
+      </v-img>
 
-              <v-tab>
-                Câmera
-                <v-icon>camera_alt</v-icon>
-              </v-tab>
+      <v-card-title>Add example</v-card-title>
+      <v-container>
+        <v-form>
+          <v-file-input
+            label="Image file"
+            accept="image/*"
+            v-model="exampleFile"
+            @change="fileToImage"
+          ></v-file-input>
+          <v-select
+            label="Example"
+            :items="classes"
+            v-model="exampleClass"
+          ></v-select>
 
-              <!-- Tabs content -->
-              <v-tab-item>
-                <v-text-field
-                  prepend-icon="link"
-                  label="Input the image URL"
-                  v-model="urlImage"
-                >
-                </v-text-field>
-              </v-tab-item>
-
-              <v-tab-item>
-                <input id="image-upload" type="file" hidden @change="onFileChange">
-                <v-btn
-                  color="primary"
-                  class="white--text"
-                  @click.native="openFileDialog"
-                >
-                  Upload <v-icon right dark>cloud_upload</v-icon>
-                </v-btn>
-              </v-tab-item>
-
-              <v-tab-item>
-                Wait for this...
-              </v-tab-item>
-            </v-tabs>
-
-            <v-img
-              id="image"
-              :src="image"
-              trasition
-            ></v-img>
-          </v-card-text>
-
-          <v-card-actions>
-            <v-btn
-              color="primary"
-              @click="classifyImage"
-              :loading="classifyingImage"
-              :disabled="classifyingImage"
-              block
-            >
-              Classify Image
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-flex>
-
-      <v-flex md6>
-        <v-card>
-          <v-card-text>
-            <bar :chart-data="chartData"></bar>
-          </v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
+          <v-btn
+            color="primary"
+            text
+            @click="clearExample"
+          >
+            Clear
+          </v-btn>
+          <v-btn
+            color="primary"
+            @click="addExample"
+          >
+            Add
+          </v-btn>
+        </v-form>
+      </v-container>
+    </v-card>
   </v-container>
 </template>
 
 <script>
-import ml5 from 'ml5'
-import Loading from '@/components/Loading'
-import Bar from '@/charts/Bar'
+import * as tf from '@tensorflow/tfjs'
 
 export default {
-  name: 'ImageClassifier',
-  components: {
-    Loading,
-    Bar
-  },
+  name: 'UntrainedImageClassifier',
   data() {
     return {
-      classifier: null,
-      loadingClassifier: true,
-      image: '',
-      urlImage: '',
-      classifyingImage: false,
-      predictions: []
+      newClass: '',
+      classes: [],
+      exampleFile: null,
+      exampleImage: null,
+      exampleClass: null,
+      examples: [],
     }
-  },
-  computed: {
-    chartData () {
-      return {
-        labels: this.predictions.map(prediction => prediction.className),
-        datasets: [{
-          label: "Certainty rate",
-          backgroundColor: 'rgb(210, 167, 132)',
-          borderColor: 'rgb(210, 167, 132)',
-          data: this.predictions.map(prediction => prediction.probability),
-        }]
-      }
-    }
-  },
-  created () {
-    this.classifier = ml5.imageClassifier('MobileNet', () => {
-      this.loadingClassifier = false
-    })
   },
   methods: {
-    openFileDialog () {
-      document.getElementById('image-upload').click()
+    addClass() {
+      this.classes = [...this.classes, this.newClass]
+
+      this.clearClass()
     },
-    onFileChange (e) {
-      const files = e.target.files || e.dataTransfer.files
-      if (!files.length) {
-        return
+    clearClass() {
+      this.newClass = ''
+    },
+    fileToImage() {
+      const reader = new FileReader()
+      const file = this.exampleFile
+
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        this.exampleImage = reader.result
       }
-
-      var fr = new FileReader();
-
-      fr.addEventListener("load", (e) => {
-        this.image = e.target.result
-      }); 
-
-      fr.readAsDataURL( files[0] )
     },
-    classifyImage () {
-      const img = new Image()
-      img.crossOrigin = 'anonymous'
-      img.src = this.image
+    addExample() {
+      const image = new Image()
+      image.src = this.exampleImage
 
-      this.classifier.predict(img, (err, predictions) => {
-        this.predictions = predictions
-      })
+      this.examples = [...this.examples, {
+        class: this.exampleClass,
+        image: this.exampleImage,
+        file: this.exampleFile,
+        tensor: tf.browser.fromPixels(image)
+      }]
+
+      this.clearExample()
+    },
+    clearExample() {
+      this.exampleFile = null
+      this.exampleClass = null
+      this.exampleImage = null
+    },
+    classify() {
+      const image = new Image();
+
+
+      const imageTensor = tf.browser.fromPixels(image);
     }
   }
 }
 </script>
-

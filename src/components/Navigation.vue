@@ -32,9 +32,10 @@
         items: [
           { title: 'Home', icon: 'memory', route: { name: 'home' } },
           { title: 'About', icon: 'info ', route: { name: 'about' } },
+          { title: 'Mobile Net Classifier', icon: 'photo', route: { name: 'mobile-net-classifier' } },
+          { title: 'Text Summarizer', icon: 'textsms', route: { name: 'text-summarizer' } },
           { title: 'Linear Regression', icon: 'trending_up', route: { name: 'linear-regression' } },
-          { title: 'Image Classifier', icon: 'photo', route: { name: 'image-classifier' } },
-          { title: 'Text Summarizer', icon: 'textsms', route: { name: 'text-summarizer' } }
+          { title: 'Image Classifier', icon: 'photo', route: { name: 'image-classifier' } }
         ],
         right: null
       }

@@ -1,11 +1,18 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
-import 'vuetify/src/stylus/app.styl'
 
-Vue.use(Vuetify, {
-  iconfont: 'md',
+Vue.use(Vuetify)
+
+export default new Vuetify({
+  icons: {
+    iconfont: 'md',
+  },
   theme: {
-    primary: '#1B2C58',
-    secondary: '#D2A784'
+    themes: {
+      light: {
+        primary: '#1B2C58',
+        secondary: '#D2A784'
+      }
+    }
   }
 })

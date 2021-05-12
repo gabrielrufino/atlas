@@ -11,7 +11,7 @@
     "@tensorflow-models/mobilenet": "^0.2.2",
     "@tensorflow/tfjs": "^1.2.11",
     "algorithmia": "^0.3.10",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "core-js": "^2.6.11",
     "ml5": "^0.2.3",
     "vue": "^2.6.11",
